@@ -21,3 +21,12 @@ label{
 #error_name{
     color: red;
 }
+.eye{
+    position: absolute;
+    margin-left: 410px;
+    margin-top: 8px;
+    /* cursor: pointer; */
+}
+/* #cls,#show{
+     cursor: pointer;
+} */

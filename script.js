@@ -4,6 +4,10 @@
     var pass = document.forms['register']['pass'];
     var cfpass = document.forms['register']['cfpass'];
     var btn_login = document.forms['register']['btn_login'];
+    var show = document.getElementById('show');
+    var cls = document.getElementById('cls');
+    var show1 = document.getElementById('show1');
+    var cls1 = document.getElementById('cls1');
     var span = document.querySelectorAll('span');
     var form = document.querySelector('form');
 
@@ -24,6 +28,9 @@
 
             cfpass.classList.add('is-invalid');
             span[6].innerHTML = "Please filde the form </br>";
+
+            show.classList.add('d-none');
+            show1.classList.add('d-none');
 
             event.preventDefault();
         }
@@ -60,17 +67,20 @@
         if(pass.value.length >= 8){
             if(pass.value.match(pass_length)){
                 pass.classList.remove('is-invalid');
+                show.classList.remove('d-none');
                 span[4].classList.add('d-none');
                 span[5].classList.add('d-none');
             }
             else{
                 pass.classList.add('is-invalid');
+                
                 span[4].classList.remove('d-none');
                 span[5].classList.remove('d-none');         
             }
         }
         else{
             pass.classList.add('is-invalid');
+            show.classList.add('d-none');
             span[4].classList.remove('d-none');
             span[4].innerHTML = "Password must be 8 characters </br>";
         }
@@ -81,6 +91,7 @@
         if(cfpass.value.length >= 8){
             if(cfpass.value.match(cfpass_length)){
                 cfpass.classList.remove('is-invalid');
+                show1.classList.remove('d-none');
                 span[6].classList.add('d-none');
                 span[7].classList.add('d-none');
             }
@@ -92,7 +103,31 @@
         }
         else{
             cfpass.classList.add('is-invalid');
+            show1.classList.add('d-none');
             span[6].classList.remove('d-none');
             span[6].innerHTML = "Password must be 8 characters </br>";
         }
+    });
+
+    show.addEventListener('click', function(){
+        cls.classList.remove('d-none');
+        show.classList.add('d-none');
+        pass.type = 'text';
+    });
+
+    cls.addEventListener('click', function(){
+        show.classList.remove('d-none');
+        cls.classList.add('d-none');
+        pass.type = 'password';
+    });
+    show1.addEventListener('click', function(){
+        cls1.classList.remove('d-none');
+        show1.classList.add('d-none');
+        cfpass.type = 'text';
+    });
+
+    cls1.addEventListener('click', function(){
+        show1.classList.remove('d-none');
+        cls1.classList.add('d-none');
+        cfpass.type = 'password';
     });
