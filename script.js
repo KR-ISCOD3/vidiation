@@ -75,3 +75,24 @@
             span[4].innerHTML = "Password must be 8 characters </br>";
         }
     });
+
+    cfpass.addEventListener('keyup',function(){
+        var cfpass_length = /^[A-Za-z0-9]+$/;
+        if(cfpass.value.length >= 8){
+            if(cfpass.value.match(cfpass_length)){
+                cfpass.classList.remove('is-invalid');
+                span[6].classList.add('d-none');
+                span[7].classList.add('d-none');
+            }
+            else{
+                cfpass.classList.add('is-invalid');
+                span[6].classList.remove('d-none');
+                span[7].classList.remove('d-none');         
+            }
+        }
+        else{
+            cfpass.classList.add('is-invalid');
+            span[6].classList.remove('d-none');
+            span[6].innerHTML = "Password must be 8 characters </br>";
+        }
+    });
